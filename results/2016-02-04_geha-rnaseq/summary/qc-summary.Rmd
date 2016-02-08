@@ -11,7 +11,10 @@ knitr::opts_chunk$set(tidy=TRUE, highlight=TRUE, dev="png",
                message=FALSE, prompt=TRUE, comment='', fig.cap='')
 ```
 
-# Overview
+                                        # Overview
+This project is Manuel Leyva in the Geha lab. Questions about this analysis
+can be raised by outside investigators by [opening an issue](https://github.com/hbc/geha-il4ko-rnaseq/issues) or by people involved in the project by [posting on Basecamp](https://basecamp.com/1762765/projects/11524447).
+
 
 ```{r qc-setup}
 library(ggplot2)
