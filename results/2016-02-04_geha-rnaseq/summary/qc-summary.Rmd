@@ -457,8 +457,19 @@ res$id = rownames(res)
 res = res %>% left_join(conversions, by=c("id"="ensembl_gene_id"))
 ```
 
+Here we show all genes with padj < 0.05, and output a file with all of the
+results that can be loaded into Excel and filtered however you like.
+
+`baseMean` is the mean count value across all samples, `log2FoldChange` is
+the log 2 fold change between the WT and IL4KO samples
+(positive is higher in the IL4KO), `lfcSE` is the log 2 fold change standard
+error, `stat` is the value of the test statistic, `pvalue` is the pvalue and
+`padj` is the BH-adjusted pvalue. If you want to filter for significant hits,
+use `padj` since that is multiple-hypothesis corrected.
+
 ```{r display-and-write}
-DT::datatable(res)
+sig_genes = subset(res, padj < 0.05)
+DT::datatable(sig_genes)
 write.table(res, file=paste(names(all_results)[1], ".tsv", sep=""),
                         quote=FALSE, sep="\t", row.names=TRUE, col.names=TRUE)
 ```
@@ -467,10 +478,12 @@ It looks like a lot of the top hits are immunoglobulin genes, and they appear
 down, which I think should be an expected result. So it looks like maybe
 there wasn't as sample swap after all. There are `r nrow(subset(res, padj < 0.05))`
 genes called differentially expressed using an adjusted p-value cutoff of 0.05.
-Here is the breakdown by biotype:
+Here is the breakdown of the significant hits by biotype:
 
 ```{r by-biotype-table}
-DT::datatable(table(subset(res, padj < 0.05)$gene_biotype))
+biotype_table = as.data.frame(table(subset(res, padj < 0.05)$gene_biotype))
+colnames(biotype_table) = c("biotype", "significant genes")
+DT::datatable(biotype_table)
 ```
 
 While there are a bunch of miRNA in the differential gene list, we can't really
