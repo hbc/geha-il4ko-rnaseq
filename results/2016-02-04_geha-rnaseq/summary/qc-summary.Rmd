@@ -78,8 +78,14 @@ heatmap_fn = get_heatmap_fn(summarydata)
 
 # Quality control metrics
 
+```{r qualimap-run}
+qualimap_run = "Mapped" %in% colnames(summarydata)
+```
+
+The number of mapped reads looks fine, if a little on the high side. 100 M reads
+or so per sample.
 ## Mapped reads
-```{r mapped-plot, eval="Mapped" %in% colnames(summarydata)}
+```{r mapped-plot, eval=qualimap_run}
 ggplot(summarydata, aes(x=Name, y=Mapped)) +
     theme_bw(base_size=10) +
     theme(panel.grid.major = element_line(size = .5, color = "grey"),
@@ -88,7 +94,7 @@ ggplot(summarydata, aes(x=Name, y=Mapped)) +
     ylab("mapped reads") + xlab("")
 ```
 
-```{r mapped-plot-noqualimap, eval="Mapped.reads" %in% colnames(summarydata)}
+```{r mapped-plot-noqualimap, eval=!qualimap_run}
 ggplot(summarydata, aes(x=Name, y=Mapped.reads)) +
     theme_bw(base_size=10) +
     theme(panel.grid.major = element_line(size = .5, color = "grey"),
@@ -98,7 +104,8 @@ ggplot(summarydata, aes(x=Name, y=Mapped.reads)) +
 ```
 
 ## Genomic mapping rate
-```{r mapping-rate-plot, eval="Mapping.Rate" %in% colnames(summarydata)}
+The rate of mapping looks fine as well.
+```{r mapping-rate-plot, eval=qualimap_run}
 ggplot(summarydata, aes(x=Name, y=Mapping.Rate)) +
     geom_bar(stat="identity") +
     ylab("mapping rate") + xlab("") +
@@ -107,7 +114,7 @@ ggplot(summarydata, aes(x=Name, y=Mapping.Rate)) +
           axis.text.x = element_text(angle=90))
 ```
 
-```{r mapping-rate-plot-noqualimap, eval="Mapped.reads.pct" %in% colnames(summarydata)}
+```{r mapping-rate-plot-noqualimap, eval=!qualimap_run}
 ggplot(summarydata, aes(x=Name, y=Mapped.reads.pct)) +
     geom_bar(stat="identity") +
     ylab("mapping rate") + xlab("") +
@@ -117,7 +124,8 @@ ggplot(summarydata, aes(x=Name, y=Mapped.reads.pct)) +
 ```
 
 ## Number of genes detected
-```{r genes-detected-plot, eval="Genes.Detected" %in% colnames(summarydata)}
+The number of genes detected looks fine.
+```{r genes-detected-plot}
 dd = data.frame(Name=colnames(counts), Genes.Detected = colSums(counts > 0))
 ggplot(dd, aes(x=Name, y=Genes.Detected)) +
     geom_bar(stat="identity") +
@@ -127,18 +135,8 @@ ggplot(dd, aes(x=Name, y=Genes.Detected)) +
     ylab("genes detected") + xlab("")
 ```
 
-## Gene detection saturation
-```{r saturation-plot, eval="Genes.Detected" %in% colnames(summarydata)}
-dd = data.frame(Mapped=summarydata$Mapped, Genes.Detected = colSums(counts > 0))
-ggplot(dd, aes(x=Mapped, y=Genes.Detected)) +
-    geom_point() +
-    theme_bw(base_size=10) +
-    theme(panel.grid.major = element_line(size = .5, color = "grey"),
-          axis.text.x = element_text(angle=90)) +
-    ylab("genes detected") + xlab("reads mapped")
-```
-
 ## Exonic mapping rate
+The exonic mapping rate looks okay, most of the reads map to exons.
 ```{r exonic-mapping-plot, eval="Exonic.Rate" %in% colnames(summarydata)}
 ggplot(summarydata, aes(x=Name, y=Exonic.Rate)) +
     geom_bar(stat="identity") +
@@ -149,6 +147,10 @@ ggplot(summarydata, aes(x=Name, y=Exonic.Rate)) +
 ```
 
 ## rRNA mapping rate
+The rRNA rate looks fine. It looks like there is more rRNA contamination in
+the batch 3 samples, but overall its small in all of the samples. We'd be
+worried if it was 20% instead of 2%.
+
 ```{r check-rRNA-eval}
 eval_rRNA = "rRNA_rate" %in% colnames(summarydata) & !sum(is.na(summarydata$rRNA_rate)) == nrow(summarydata)
 ```
@@ -161,17 +163,8 @@ ggplot(summarydata, aes(x=Name, y=rRNA_rate)) +
     ylab("rRNA rate") + xlab("")
 ```
 
-## Estimated fragment length of paired-end reads
-```{r fragment-length-plot, eval="Fragment.Length.Mean" %in% colnames(summarydata)}
-ggplot(summarydata, aes(x=Name, y=Fragment.Length.Mean)) +
-    geom_bar(stat="identity") +
-    theme_bw(base_size=10) +
-    theme(panel.grid.major = element_line(size = .5, color = "grey"),
-          axis.text.x = element_text(angle=90)) +
-    ylab("fragment length") + xlab("")
-```
-
 ## Boxplot of log10 counts per gene
+These distributions look okay, you can see a batch effect in batch 3 here.
 ```{r boxplot-raw}
 melted = melt(counts)
 colnames(melted) = c("sample", "count")
@@ -190,6 +183,9 @@ Trimmed mean of M-values (TMM) normalization is described
 
 Robinson, M. D., & Oshlack, A. (2010). A scaling normalization method for differential expression analysis of RNA-seq data. Genome Biology, 11(3). doi:10.1186/gb-2010-11-3-r25
 
+The batch effect isn't entirely removed due to the normalization, there is a larger
+spread in the batch 3 samples.
+
 ```{r boxplot-normalized}
 y = DGEList(counts=counts)
 y = calcNormFactors(y)
@@ -206,8 +202,10 @@ ggplot(melted, aes(x=sample, y=count)) + geom_boxplot() +
 ```
 
 ## Density of log10 TMM-normalized counts
+You can see the batch effect here, on the x-axis are the log counts for
+each sample.
 ```{r density-normalized}
-ggplot(melted, aes(x=count, group=sample)) +
+ggplot(melted, aes(x=count, group=sample, color=sample)) +
     geom_density() +
     theme_bw(base_size=10) +
     theme(panel.grid.major = element_line(size = .5, color = "grey"),
@@ -215,6 +213,9 @@ ggplot(melted, aes(x=count, group=sample)) +
 ```
 
 ## Correlation (Pearson) heatmap of TMM-normalized counts
+Here we try clustering the samples using a couple different metrics. In
+each attempt, the samples cluster together more by batch, indicating a large
+batch effect.
 ```{r pearson-heatmap-normalized, eval=ncol(counts) > 1}
 heatmap_fn(cor(normalized_counts, method="pearson"))
 ```
@@ -225,38 +226,33 @@ heatmap_fn(cor(normalized_counts, method="spearman"))
 ```
 
 ## PCA plot
+We can also see the batch effect if we plot the first and second principal
+components against each other.
 ```{r pca, eval=ncol(counts) > 1}
 dds = DESeqDataSetFromMatrix(countData=counts, colData=summarydata, design=~Name)
 vst = varianceStabilizingTransformation(dds)
 plotPCA(vst, intgroup=c("Name"))
 ```
 
-## Heatmap by concordance correlation coefficient
-http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004075
+## summary of QC
+The samples look fine, except for the large batch effect. We can see looking
+at the PCA plot that 78% of the variation between the samples can be
+explained by PC1, which separates on batch. Only 13% of the variation can
+be explained by PC2, which seems to separate the cells based on genotype.
 
-```{r propcor-heatmap, eval=ncol(counts) > 1}
-propcor = function(x, y) {
-    x = log(x + 0.1)
-    y = log(y + 0.1)
-    num = 2 * cov(x, y)
-    denom = var(x) + var(y)
-return(num/denom)}
+So one question is, could there possibly have been a sample swap between
+any of the samples? Here were the mappings from the FASTQ files to the
+samples that we used:
 
-do_propcor = function(x) {
-     mat = list()
-     for(i in seq_len(ncol(x))) {
-         for(j in seq_len(ncol(x))) {
-        x2 = x[, i]
-        y2 = x[, j]
-        mat = c(mat, propcor(x2, y2)) } }
-    mat = unlist(mat)
-    mat = matrix(mat, ncol(x), ncol(x))
-    colnames(mat) = colnames(x)
-    rownames(mat) = colnames(x)
-    return(mat)}
-
-heatmap_fn(do_propcor(normalized_counts))
+```{r mapping-files, echo=FALSE}
+DT::datatable(read.table("../../geha-rnaseq.csv", sep=",", header=TRUE))
 ```
+
+Moving forward, we'll assume there was no sample swap and see what the
+differences are. We'll do differential expression and look at the differences
+between the IL4 knockouts and the wild types by comparing the IL4 KO to its
+matched batch mate.
+
 ```{r deseq2-tximport-helper-functions}
 # snagged from development version of DESeq
 DESeqDataSetFromTximport <- function(txi, colData, design, ...)
@@ -436,9 +432,50 @@ if(length(plots) > 0) {
 for(i in seq(length(all_results))) {
   cat(paste("Lowest adjusted p-value hits for", names(all_results)[i]))
   out_df = as.data.frame(all_results[[i]])
-  print(knitr::kable(head(out_df)))
   write.table(out_df, file=paste(names(all_results)[i], ".tsv", sep=""),
                          quote=FALSE, sep="\t", row.names=TRUE, col.names=TRUE)
   cat("\n")
 }
 ```
+
+```{r lookup-biomart-stuff}
+library(biomaRt)
+mouse = useMart(biomart = "ENSEMBL_MART_ENSEMBL",
+                dataset="mmusculus_gene_ensembl",
+                host = "jul2015.archive.ensembl.org")
+conversions = getBM(attributes=c("ensembl_gene_id", "mgi_symbol", "gene_biotype"),
+                    mart=mouse)
+rrna_biotypes = c("rRNA", "Mt_rRNA", "misc_RNA", "snRNA", "snoRNA",
+                    "tRNA", "Mt_tRNA")
+rrna_genes = unique(subset(conversions, gene_biotype %in% rrna_biotypes)$ensembl_gene_id)
+```
+
+```{r annotate-with-symbol}
+library(dplyr)
+res = data.frame(all_results[[1]])
+res$id = rownames(res)
+res = res %>% left_join(conversions, by=c("id"="ensembl_gene_id"))
+```
+
+```{r display-and-write}
+DT::datatable(res)
+write.table(res, file=paste(names(all_results)[1], ".tsv", sep=""),
+                        quote=FALSE, sep="\t", row.names=TRUE, col.names=TRUE)
+```
+
+It looks like a lot of the top hits are immunoglobulin genes, and they appear
+down, which I think should be an expected result. So it looks like maybe
+there wasn't as sample swap after all. There are `r nrow(subset(res, padj < 0.05))`
+genes called differentially expressed using an adjusted p-value cutoff of 0.05.
+Here is the breakdown by biotype:
+
+```{r by-biotype-table}
+DT::datatable(table(subset(res, padj < 0.05)$gene_biotype))
+```
+
+While there are a bunch of miRNA in the differential gene list, we can't really
+call miRNA differences from this data, since we
+didn't do a small RNA experiment. What we are likely picking up is unspliced pre-miRNA. Picking up more pre-miRNA might indicate there is more of the mature miRNA being expressed. I talked to Lorena Pantano, our miRNA expert in the core and she said there isn't
+a clear correlation between pre-miRNA expression and mature miRNA expression. If
+you wanted to do anything with the miRNA results,
+you'd have to follow up with qPCR or a small RNA sequencing experiment or something to look at the mature miRNA if you wanted to make that into a publishable finding.
