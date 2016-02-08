@@ -468,10 +468,11 @@ error, `stat` is the value of the test statistic, `pvalue` is the pvalue and
 use `padj` since that is multiple-hypothesis corrected.
 
 ```{r display-and-write}
+res = res[, c("id", colnames(res)[colnames(res) != "id"])]
 sig_genes = subset(res, padj < 0.05)
 DT::datatable(sig_genes)
 write.table(res, file=paste(names(all_results)[1], ".tsv", sep=""),
-                        quote=FALSE, sep="\t", row.names=TRUE, col.names=TRUE)
+                        quote=FALSE, sep="\t", row.names=FALSE, col.names=TRUE)
 ```
 
 It looks like a lot of the top hits are immunoglobulin genes, and they appear
