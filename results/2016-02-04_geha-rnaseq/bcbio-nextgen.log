@@ -1,0 +1,248 @@
+[2016-02-04T17:30Z] holyseas04.rc.fas.harvard.edu: Timing: organize samples
+[2016-02-04T17:30Z] holyseas04.rc.fas.harvard.edu: ipython: organize_samples
+[2016-02-04T17:31Z] holy2a04204.rc.fas.harvard.edu: Using input YAML configuration: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/config/geha-rnaseq.yaml
+[2016-02-04T17:31Z] holy2a04204.rc.fas.harvard.edu: Checking sample YAML configuration: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/config/geha-rnaseq.yaml
+[2016-02-04T17:31Z] holy2a04204.rc.fas.harvard.edu: Testing minimum versions of installed programs
+[2016-02-04T17:31Z] holyseas04.rc.fas.harvard.edu: ipython: prepare_sample
+[2016-02-04T19:16Z] holyseas04.rc.fas.harvard.edu: Timing: alignment
+[2016-02-04T19:16Z] holyseas04.rc.fas.harvard.edu: ipython: disambiguate_split
+[2016-02-04T19:18Z] holyseas04.rc.fas.harvard.edu: ipython: process_alignment
+[2016-02-04T19:18Z] holy2a06207.rc.fas.harvard.edu: Aligning lane 4_2016-02-04_geha-rnaseq with star aligner
+[2016-02-04T19:18Z] holy2a04105.rc.fas.harvard.edu: Aligning lane 1_2016-02-04_geha-rnaseq with star aligner
+[2016-02-04T19:18Z] holy2a04105.rc.fas.harvard.edu: Aligning lane 3_2016-02-04_geha-rnaseq with star aligner
+[2016-02-04T19:18Z] holy2a03303.rc.fas.harvard.edu: Aligning lane 2_2016-02-04_geha-rnaseq with star aligner
+[2016-02-04T20:36Z] holyseas04.rc.fas.harvard.edu: Timing: disambiguation
+[2016-02-04T20:36Z] holyseas04.rc.fas.harvard.edu: Timing: transcript assembly
+[2016-02-04T20:36Z] holyseas04.rc.fas.harvard.edu: Timing: estimate expression (threaded)
+[2016-02-04T20:36Z] holyseas04.rc.fas.harvard.edu: ipython: generate_transcript_counts
+[2016-02-04T21:19Z] holyseas04.rc.fas.harvard.edu: ipython: run_sailfish
+[2016-02-04T21:44Z] holyseas04.rc.fas.harvard.edu: Timing: estimate expression (single threaded)
+[2016-02-04T21:44Z] holyseas04.rc.fas.harvard.edu: ipython: run_dexseq
+[2016-02-04T21:44Z] holy2a06207.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-04T21:44Z] holy2a06207.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-04T21:44Z] holy2a06207.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-04T21:44Z] holy2a06207.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-04T21:50Z] holyseas04.rc.fas.harvard.edu: Timing: RNA-seq variant calling
+[2016-02-04T21:50Z] holyseas04.rc.fas.harvard.edu: ipython: run_rnaseq_variant_calling
+[2016-02-04T21:51Z] holyseas04.rc.fas.harvard.edu: ipython: run_rnaseq_joint_genotyping
+[2016-02-04T21:55Z] holyseas04.rc.fas.harvard.edu: Timing: quality control
+[2016-02-04T21:55Z] holyseas04.rc.fas.harvard.edu: ipython: pipeline_summary
+[2016-02-04T21:56Z] holy2a01202.rc.fas.harvard.edu: Generating summary files: WT_DCs_3
+[2016-02-04T21:56Z] holy2a08105.rc.fas.harvard.edu: Generating summary files: WT_DCs_1
+[2016-02-04T21:56Z] holy2a07103.rc.fas.harvard.edu: Generating summary files: IL4ko_DC_3
+[2016-02-04T21:57Z] holy2a02108.rc.fas.harvard.edu: Generating summary files: IL4ko_DC_1
+[2016-02-04T22:39Z] holy2a07103.rc.fas.harvard.edu: Unexpected error
+Traceback (most recent call last):
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 45, in _setup_logging
+    yield config
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 194, in pipeline_summary
+    return ipython.zip_args(apply(qcsummary.pipeline_summary, *args))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 79, in pipeline_summary
+    data["summary"] = _run_qc_tools(work_bam, data)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 134, in _run_qc_tools
+    cur_metrics = qc_fn(bam_file, data, cur_qc_dir)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 720, in _rnaseq_qualimap
+    metrics.update(_detect_rRNA(data))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 666, in _detect_rRNA
+    tidy_file = dd.get_sailfish_tidy_file(data)
+AttributeError: 'module' object has no attribute 'get_sailfish_tidy_file'
+[2016-02-04T22:48Z] holy2a02108.rc.fas.harvard.edu: Unexpected error
+Traceback (most recent call last):
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 45, in _setup_logging
+    yield config
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 194, in pipeline_summary
+    return ipython.zip_args(apply(qcsummary.pipeline_summary, *args))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 79, in pipeline_summary
+    data["summary"] = _run_qc_tools(work_bam, data)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 134, in _run_qc_tools
+    cur_metrics = qc_fn(bam_file, data, cur_qc_dir)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 720, in _rnaseq_qualimap
+    metrics.update(_detect_rRNA(data))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 666, in _detect_rRNA
+    tidy_file = dd.get_sailfish_tidy_file(data)
+AttributeError: 'module' object has no attribute 'get_sailfish_tidy_file'
+[2016-02-04T22:49Z] holy2a01202.rc.fas.harvard.edu: Unexpected error
+Traceback (most recent call last):
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 45, in _setup_logging
+    yield config
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 194, in pipeline_summary
+    return ipython.zip_args(apply(qcsummary.pipeline_summary, *args))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 79, in pipeline_summary
+    data["summary"] = _run_qc_tools(work_bam, data)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 134, in _run_qc_tools
+    cur_metrics = qc_fn(bam_file, data, cur_qc_dir)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 720, in _rnaseq_qualimap
+    metrics.update(_detect_rRNA(data))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 666, in _detect_rRNA
+    tidy_file = dd.get_sailfish_tidy_file(data)
+AttributeError: 'module' object has no attribute 'get_sailfish_tidy_file'
+[2016-02-04T22:50Z] holy2a08105.rc.fas.harvard.edu: Unexpected error
+Traceback (most recent call last):
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 45, in _setup_logging
+    yield config
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 194, in pipeline_summary
+    return ipython.zip_args(apply(qcsummary.pipeline_summary, *args))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 79, in pipeline_summary
+    data["summary"] = _run_qc_tools(work_bam, data)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 134, in _run_qc_tools
+    cur_metrics = qc_fn(bam_file, data, cur_qc_dir)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 720, in _rnaseq_qualimap
+    metrics.update(_detect_rRNA(data))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 666, in _detect_rRNA
+    tidy_file = dd.get_sailfish_tidy_file(data)
+AttributeError: 'module' object has no attribute 'get_sailfish_tidy_file'
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: run local -- checkpoint passed: trimming
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Timing: organize samples
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: multiprocessing: organize_samples
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Using input YAML configuration: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/config/geha-rnaseq.yaml
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Checking sample YAML configuration: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/config/geha-rnaseq.yaml
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Testing minimum versions of installed programs
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: multiprocessing: prepare_sample
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: run local -- checkpoint passed: alignment
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Timing: alignment
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: multiprocessing: disambiguate_split
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: multiprocessing: process_alignment
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Aligning lane 1_2016-02-04_geha-rnaseq with star aligner
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Aligning lane 2_2016-02-04_geha-rnaseq with star aligner
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Aligning lane 3_2016-02-04_geha-rnaseq with star aligner
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Aligning lane 4_2016-02-04_geha-rnaseq with star aligner
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: run local -- checkpoint passed: rnaseqcount
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Timing: disambiguation
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Timing: transcript assembly
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Timing: estimate expression (threaded)
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: multiprocessing: generate_transcript_counts
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: multiprocessing: run_sailfish
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: run local -- checkpoint passed: rnaseqcount-singlethread
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: Timing: estimate expression (single threaded)
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: multiprocessing: run_dexseq
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-05T14:14Z] holyconroy06.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-05T14:15Z] holyconroy06.rc.fas.harvard.edu: run local -- checkpoint passed: rnaseq-variation
+[2016-02-05T14:15Z] holyconroy06.rc.fas.harvard.edu: Timing: RNA-seq variant calling
+[2016-02-05T14:15Z] holyconroy06.rc.fas.harvard.edu: multiprocessing: run_rnaseq_variant_calling
+[2016-02-05T14:15Z] holyconroy06.rc.fas.harvard.edu: multiprocessing: run_rnaseq_joint_genotyping
+[2016-02-05T14:23Z] holyconroy06.rc.fas.harvard.edu: Timing: quality control
+[2016-02-05T14:23Z] holyconroy06.rc.fas.harvard.edu: ipython: pipeline_summary
+[2016-02-05T14:24Z] holy2a06203.rc.fas.harvard.edu: Generating summary files: IL4ko_DC_3
+[2016-02-05T14:27Z] holy2a08203.rc.fas.harvard.edu: Generating summary files: WT_DCs_1
+[2016-02-05T14:30Z] holy2a06203.rc.fas.harvard.edu: Generating summary files: WT_DCs_3
+[2016-02-05T14:33Z] holy2a08203.rc.fas.harvard.edu: Unexpected error
+Traceback (most recent call last):
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 45, in _setup_logging
+    yield config
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 194, in pipeline_summary
+    return ipython.zip_args(apply(qcsummary.pipeline_summary, *args))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 79, in pipeline_summary
+    data["summary"] = _run_qc_tools(work_bam, data)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 134, in _run_qc_tools
+    cur_metrics = qc_fn(bam_file, data, cur_qc_dir)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 722, in _rnaseq_qualimap
+    metrics.update(_detect_rRNA(data))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 674, in _detect_rRNA
+    total_exp = map(float, sample_table["numreads"])
+ValueError: could not convert string to float: NumReads
+[2016-02-05T14:34Z] holy2a08203.rc.fas.harvard.edu: Generating summary files: IL4ko_DC_1
+[2016-02-05T14:35Z] holy2a06203.rc.fas.harvard.edu: Unexpected error
+Traceback (most recent call last):
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 45, in _setup_logging
+    yield config
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 194, in pipeline_summary
+    return ipython.zip_args(apply(qcsummary.pipeline_summary, *args))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 79, in pipeline_summary
+    data["summary"] = _run_qc_tools(work_bam, data)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 134, in _run_qc_tools
+    cur_metrics = qc_fn(bam_file, data, cur_qc_dir)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 722, in _rnaseq_qualimap
+    metrics.update(_detect_rRNA(data))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 674, in _detect_rRNA
+    total_exp = map(float, sample_table["numreads"])
+ValueError: could not convert string to float: NumReads
+[2016-02-05T14:40Z] holy2a08203.rc.fas.harvard.edu: Unexpected error
+Traceback (most recent call last):
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 45, in _setup_logging
+    yield config
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/distributed/ipythontasks.py", line 194, in pipeline_summary
+    return ipython.zip_args(apply(qcsummary.pipeline_summary, *args))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 79, in pipeline_summary
+    data["summary"] = _run_qc_tools(work_bam, data)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 134, in _run_qc_tools
+    cur_metrics = qc_fn(bam_file, data, cur_qc_dir)
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 722, in _rnaseq_qualimap
+    metrics.update(_detect_rRNA(data))
+  File "/n/home05/kirchner/miniconda/envs/bcbio/lib/python2.7/site-packages/bcbio_nextgen-0.9.6a0-py2.7.egg/bcbio/pipeline/qcsummary.py", line 674, in _detect_rRNA
+    total_exp = map(float, sample_table["numreads"])
+ValueError: could not convert string to float: NumReads
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: run local -- checkpoint passed: trimming
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Timing: organize samples
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: multiprocessing: organize_samples
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Using input YAML configuration: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/config/geha-rnaseq.yaml
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Checking sample YAML configuration: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/config/geha-rnaseq.yaml
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Testing minimum versions of installed programs
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: multiprocessing: prepare_sample
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: run local -- checkpoint passed: alignment
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Timing: alignment
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: multiprocessing: disambiguate_split
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: multiprocessing: process_alignment
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Aligning lane 1_2016-02-04_geha-rnaseq with star aligner
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Aligning lane 2_2016-02-04_geha-rnaseq with star aligner
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Aligning lane 3_2016-02-04_geha-rnaseq with star aligner
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Aligning lane 4_2016-02-04_geha-rnaseq with star aligner
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: run local -- checkpoint passed: rnaseqcount
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Timing: disambiguation
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Timing: transcript assembly
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: Timing: estimate expression (threaded)
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: multiprocessing: generate_transcript_counts
+[2016-02-05T19:53Z] holyseas04.rc.fas.harvard.edu: multiprocessing: run_sailfish
+[2016-02-05T19:56Z] holyseas04.rc.fas.harvard.edu: run local -- checkpoint passed: rnaseqcount-singlethread
+[2016-02-05T19:56Z] holyseas04.rc.fas.harvard.edu: Timing: estimate expression (single threaded)
+[2016-02-05T19:56Z] holyseas04.rc.fas.harvard.edu: multiprocessing: run_dexseq
+[2016-02-05T19:56Z] holyseas04.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-05T19:56Z] holyseas04.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-05T19:56Z] holyseas04.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-05T19:57Z] holyseas04.rc.fas.harvard.edu: DEXseq is not installed, skipping exon-level counting.
+[2016-02-05T19:58Z] holyseas04.rc.fas.harvard.edu: run local -- checkpoint passed: rnaseq-variation
+[2016-02-05T19:58Z] holyseas04.rc.fas.harvard.edu: Timing: RNA-seq variant calling
+[2016-02-05T19:58Z] holyseas04.rc.fas.harvard.edu: multiprocessing: run_rnaseq_variant_calling
+[2016-02-05T19:58Z] holyseas04.rc.fas.harvard.edu: multiprocessing: run_rnaseq_joint_genotyping
+[2016-02-05T20:03Z] holyseas04.rc.fas.harvard.edu: Timing: quality control
+[2016-02-05T20:03Z] holyseas04.rc.fas.harvard.edu: ipython: pipeline_summary
+[2016-02-05T20:04Z] holy2a01208.rc.fas.harvard.edu: Generating summary files: WT_DCs_3
+[2016-02-05T20:04Z] holy2a02102.rc.fas.harvard.edu: Generating summary files: IL4ko_DC_1
+[2016-02-05T20:04Z] holy2a08207.rc.fas.harvard.edu: Generating summary files: WT_DCs_1
+[2016-02-05T20:05Z] holy2a02201.rc.fas.harvard.edu: Generating summary files: IL4ko_DC_3
+[2016-02-05T20:15Z] holyseas04.rc.fas.harvard.edu: ipython: coverage_report
+[2016-02-05T20:15Z] holyseas04.rc.fas.harvard.edu: ipython: qc_report_summary
+[2016-02-05T20:15Z] holy2a02201.rc.fas.harvard.edu: copy qsignature
+[2016-02-05T20:15Z] holy2a02201.rc.fas.harvard.edu: summarize fastqc
+[2016-02-05T20:15Z] holy2a02201.rc.fas.harvard.edu: Skipping generation of coverage report: Command 'set -o pipefail; /n/home05/kirchner/miniconda/envs/bcbio/bin/Rscript /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/work/report/qc-coverage-report-run.R
+Error in library(rmarkdown) : there is no package called ‘rmarkdown’
+Execution halted
+' returned non-zero exit status 1
+[2016-02-05T20:15Z] holy2a02201.rc.fas.harvard.edu: summarize metrics
+[2016-02-05T20:15Z] holyseas04.rc.fas.harvard.edu: ipython: qsignature_summary
+[2016-02-05T20:15Z] holyseas04.rc.fas.harvard.edu: Timing: upload
+[2016-02-05T20:15Z] holyseas04.rc.fas.harvard.edu: ipython: upload_samples
+[2016-02-05T20:15Z] holy2a02201.rc.fas.harvard.edu: Storing directory in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_3/qc
+[2016-02-05T20:15Z] holy2a01208.rc.fas.harvard.edu: Storing directory in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_3/qc
+[2016-02-05T20:15Z] holy2a02102.rc.fas.harvard.edu: Storing directory in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_1/qc
+[2016-02-05T20:15Z] holy2a08207.rc.fas.harvard.edu: Storing directory in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_1/qc
+[2016-02-05T20:16Z] holy2a02201.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_3/WT_DCs_3-ready.bam
+[2016-02-05T20:16Z] holy2a01208.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_3/IL4ko_DC_3-ready.bam
+[2016-02-05T20:16Z] holy2a02102.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_1/WT_DCs_1-ready.bam
+[2016-02-05T20:16Z] holy2a08207.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_1/IL4ko_DC_1-ready.bam
+[2016-02-05T20:17Z] holy2a02201.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_3/WT_DCs_3-ready.bam.bai
+[2016-02-05T20:17Z] holy2a02201.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_3/WT_DCs_3-transcriptome.bam
+[2016-02-05T20:17Z] holy2a08207.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_1/IL4ko_DC_1-ready.bam.bai
+[2016-02-05T20:17Z] holy2a08207.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_1/IL4ko_DC_1-transcriptome.bam
+[2016-02-05T20:17Z] holy2a01208.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_3/IL4ko_DC_3-ready.bam.bai
+[2016-02-05T20:17Z] holy2a02102.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_1/WT_DCs_1-ready.bam.bai
+[2016-02-05T20:17Z] holy2a01208.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_3/IL4ko_DC_3-transcriptome.bam
+[2016-02-05T20:17Z] holy2a02102.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_1/WT_DCs_1-transcriptome.bam
+[2016-02-05T20:18Z] holy2a08207.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_1/IL4ko_DC_1-ready.counts
+[2016-02-05T20:18Z] holy2a08207.rc.fas.harvard.edu: Storing directory in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/IL4ko_DC_1/sailfish/IL4ko_DC_1
+[2016-02-05T20:19Z] holy2a02102.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_1/WT_DCs_1-ready.counts
+[2016-02-05T20:19Z] holy2a02102.rc.fas.harvard.edu: Storing directory in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_1/sailfish/WT_DCs_1
+[2016-02-05T20:19Z] holy2a02201.rc.fas.harvard.edu: Storing in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_3/WT_DCs_3-ready.counts
+[2016-02-05T20:19Z] holy2a02201.rc.fas.harvard.edu: Storing directory in local filesystem: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final/WT_DCs_3/sailfish/WT_DCs_3

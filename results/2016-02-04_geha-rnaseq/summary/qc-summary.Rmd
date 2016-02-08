@@ -24,9 +24,9 @@ library(DESeq2)
 library(tximport)
 library(logging)
 basicConfig()
-project_summary = "/Users/rory/cache/geha-rnaseq/results/2016-02-04_geha-rnaseq/project-summary.csv"
-counts_file = "/Users/rory/cache/geha-rnaseq/results/2016-02-04_geha-rnaseq/combined.counts"
-tx2genes_file = "/Users/rory/cache/geha-rnaseq/results/2016-02-04_geha-rnaseq/tx2gene.csv"
+project_summary = "../project-summary.csv"
+counts_file = "../combined.counts"
+tx2genes_file = "../tx2gene.csv"
 cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442",
 "#0072B2", "#D55E00", "#CC79A7")
 summarydata = data.frame(read.table(project_summary, header=TRUE, sep=","), row.names="Name", check.rows=FALSE)

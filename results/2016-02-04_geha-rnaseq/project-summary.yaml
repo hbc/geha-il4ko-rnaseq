@@ -1,0 +1,240 @@
+date: '2016-02-05 15:15:53.123769'
+upload: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/final
+bcbio_system: /n/regal/hsph_bioinfo/bcbio_nextgen/galaxy/bcbio_system.yaml
+samples:
+- description: IL4ko_DC_3
+  dirs:
+    config: /n/regal/hsph_bioinfo/bcbio_nextgen/galaxy
+    fastq: null
+    flowcell: null
+    galaxy: /n/regal/hsph_bioinfo/bcbio_nextgen/galaxy
+    work: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/work
+  genome_build: mm10
+  genome_resources:
+    aliases:
+      ensembl: mus_musculus_vep_83_GRCm38
+      snpeff: GRCm38.78
+    rnaseq:
+      dexseq: ../rnaseq/ref-transcripts.dexseq.gff3
+      gene_bed: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.bed
+      rRNA_fa: ../rnaseq/rRNA.fa
+      refflat: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.refFlat
+      transcriptome_index:
+        tophat: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/tophat/mm10_transcriptome.ver
+      transcripts: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
+      transcripts_mask: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts-mask.gtf
+    srnaseq:
+      mirbase: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/srnaseq/hairpin.fa
+      srna-transcripts: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/srnaseq/srna-transcripts.gtf
+    variation:
+      dbsnp: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/variation/mm10-dbSNP-2013-09-12.vcf.gz
+      lcr: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/coverage/problem_regions/repeats/LCR.bed.gz
+    version: 14
+  metadata:
+    barcode: TCGTCA
+    batch: batch3
+    genotype: IL4_knockout
+  sam_ref: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/seq/mm10.fa
+  summary:
+    metrics:
+      '%GC': '47'
+      5'-3' bias: 0.72
+      Duplicates: '0'
+      Duplicates pct: 0%
+      Duplication Rate of Mapped: 0.0
+      Exonic Rate: 0.6851999999999999
+      Fragment Length Mean: 0.0
+      Genes Detected: 0
+      Intergenic Rate: 0.1474
+      Intronic Rate: 0.1674
+      Mapped: 129548413
+      Mapped reads: '157187588'
+      Mapped reads pct: 94.651%
+      Mapping Rate: 0.9358305383225421
+      Mean Per Base Cov.: 0
+      Name: IL4ko_DC_3
+      Quality format: standard
+      Sequence length: '40'
+      Sequences flagged as poor quality: '0'
+      Total reads: '166070662'
+      Transcripts Detected: 0
+      avg_coverage_per_region: NA
+      rRNA: '577550.936013'
+      rRNA_rate: '0.0060444207128'
+- description: WT_DCs_1
+  dirs:
+    config: /n/regal/hsph_bioinfo/bcbio_nextgen/galaxy
+    fastq: null
+    flowcell: null
+    galaxy: /n/regal/hsph_bioinfo/bcbio_nextgen/galaxy
+    work: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/work
+  genome_build: mm10
+  genome_resources:
+    aliases:
+      ensembl: mus_musculus_vep_83_GRCm38
+      snpeff: GRCm38.78
+    rnaseq:
+      dexseq: ../rnaseq/ref-transcripts.dexseq.gff3
+      gene_bed: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.bed
+      rRNA_fa: ../rnaseq/rRNA.fa
+      refflat: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.refFlat
+      transcriptome_index:
+        tophat: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/tophat/mm10_transcriptome.ver
+      transcripts: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
+      transcripts_mask: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts-mask.gtf
+    srnaseq:
+      mirbase: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/srnaseq/hairpin.fa
+      srna-transcripts: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/srnaseq/srna-transcripts.gtf
+    variation:
+      dbsnp: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/variation/mm10-dbSNP-2013-09-12.vcf.gz
+      lcr: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/coverage/problem_regions/repeats/LCR.bed.gz
+    version: 14
+  metadata:
+    barcode: AATGGT
+    batch: batch1
+    genotype: wildtype
+  sam_ref: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/seq/mm10.fa
+  summary:
+    metrics:
+      '%GC': '46'
+      5'-3' bias: 0.39
+      Duplicates: '0'
+      Duplicates pct: 0%
+      Duplication Rate of Mapped: 0.0
+      Exonic Rate: 0.6385000000000001
+      Fragment Length Mean: 0.0
+      Genes Detected: 0
+      Intergenic Rate: 0.19519999999999998
+      Intronic Rate: 0.1664
+      Mapped: 113823729
+      Mapped reads: '142720188'
+      Mapped reads pct: 94.444%
+      Mapping Rate: 0.931303893192385
+      Mean Per Base Cov.: 0
+      Name: WT_DCs_1
+      Quality format: standard
+      Sequence length: '40'
+      Sequences flagged as poor quality: '0'
+      Total reads: '151116209'
+      Transcripts Detected: 0
+      avg_coverage_per_region: NA
+      rRNA: '1703762.54074'
+      rRNA_rate: '0.020854695699'
+- description: WT_DCs_3
+  dirs:
+    config: /n/regal/hsph_bioinfo/bcbio_nextgen/galaxy
+    fastq: null
+    flowcell: null
+    galaxy: /n/regal/hsph_bioinfo/bcbio_nextgen/galaxy
+    work: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/work
+  genome_build: mm10
+  genome_resources:
+    aliases:
+      ensembl: mus_musculus_vep_83_GRCm38
+      snpeff: GRCm38.78
+    rnaseq:
+      dexseq: ../rnaseq/ref-transcripts.dexseq.gff3
+      gene_bed: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.bed
+      rRNA_fa: ../rnaseq/rRNA.fa
+      refflat: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.refFlat
+      transcriptome_index:
+        tophat: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/tophat/mm10_transcriptome.ver
+      transcripts: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
+      transcripts_mask: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts-mask.gtf
+    srnaseq:
+      mirbase: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/srnaseq/hairpin.fa
+      srna-transcripts: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/srnaseq/srna-transcripts.gtf
+    variation:
+      dbsnp: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/variation/mm10-dbSNP-2013-09-12.vcf.gz
+      lcr: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/coverage/problem_regions/repeats/LCR.bed.gz
+    version: 14
+  metadata:
+    barcode: GGCAAC
+    batch: batch3
+    genotype: wildtype
+  sam_ref: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/seq/mm10.fa
+  summary:
+    metrics:
+      '%GC': '49'
+      5'-3' bias: 0.73
+      Duplicates: '0'
+      Duplicates pct: 0%
+      Duplication Rate of Mapped: 0.0
+      Exonic Rate: 0.7170000000000001
+      Fragment Length Mean: 0.0
+      Genes Detected: 0
+      Intergenic Rate: 0.1396
+      Intronic Rate: 0.1433
+      Mapped: 104789685
+      Mapped reads: '129691708'
+      Mapped reads pct: 97.3034%
+      Mapping Rate: 0.9668380472757824
+      Mean Per Base Cov.: 0
+      Name: WT_DCs_3
+      Quality format: standard
+      Sequence length: '40'
+      Sequences flagged as poor quality: '0'
+      Total reads: '133285930'
+      Transcripts Detected: 0
+      avg_coverage_per_region: NA
+      rRNA: '375844.138485'
+      rRNA_rate: '0.00461311590168'
+- description: IL4ko_DC_1
+  dirs:
+    config: /n/regal/hsph_bioinfo/bcbio_nextgen/galaxy
+    fastq: null
+    flowcell: null
+    galaxy: /n/regal/hsph_bioinfo/bcbio_nextgen/galaxy
+    work: /net/hsphfs1/srv/export/hsphfs1/share_root/chb/projects/geha-rnaseq/geha-rnaseq/work
+  genome_build: mm10
+  genome_resources:
+    aliases:
+      ensembl: mus_musculus_vep_83_GRCm38
+      snpeff: GRCm38.78
+    rnaseq:
+      dexseq: ../rnaseq/ref-transcripts.dexseq.gff3
+      gene_bed: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.bed
+      rRNA_fa: ../rnaseq/rRNA.fa
+      refflat: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.refFlat
+      transcriptome_index:
+        tophat: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/tophat/mm10_transcriptome.ver
+      transcripts: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
+      transcripts_mask: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/rnaseq/ref-transcripts-mask.gtf
+    srnaseq:
+      mirbase: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/srnaseq/hairpin.fa
+      srna-transcripts: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/srnaseq/srna-transcripts.gtf
+    variation:
+      dbsnp: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/variation/mm10-dbSNP-2013-09-12.vcf.gz
+      lcr: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/coverage/problem_regions/repeats/LCR.bed.gz
+    version: 14
+  metadata:
+    barcode: CTACTG
+    batch: batch1
+    genotype: IL4_knockout
+  sam_ref: /n/regal/hsph_bioinfo/bcbio_nextgen/genomes/Mmusculus/mm10/seq/mm10.fa
+  summary:
+    metrics:
+      '%GC': '45'
+      5'-3' bias: 0.43
+      Duplicates: '0'
+      Duplicates pct: 0%
+      Duplication Rate of Mapped: 0.0
+      Exonic Rate: 0.6659
+      Fragment Length Mean: 0.0
+      Genes Detected: 0
+      Intergenic Rate: 0.1805
+      Intronic Rate: 0.1535
+      Mapped: 109532019
+      Mapped reads: '137384132'
+      Mapped reads pct: 93.7331%
+      Mapping Rate: 0.9226285866830516
+      Mean Per Base Cov.: 0
+      Name: IL4ko_DC_1
+      Quality format: standard
+      Sequence length: '40'
+      Sequences flagged as poor quality: '0'
+      Total reads: '146569461'
+      Transcripts Detected: 0
+      avg_coverage_per_region: NA
+      rRNA: '1452406.67722'
+      rRNA_rate: '0.0180663927085'

@@ -1,0 +1,5 @@
+samplename,description,batch,genotype,barcode
+151130Geh_D15-10104_NA_sequence,WT_DCs_1,batch1,wildtype,AATGGT
+151130Geh_D15-10105_NA_sequence,IL4ko_DC_1,batch1,IL4_knockout,CTACTG
+151130Geh_D15-10106_NA_sequence,WT_DCs_3,batch3,wildtype,GGCAAC
+151130Geh_D15-10107_NA_sequence,IL4ko_DC_3,batch3,IL4_knockout,TCGTCA

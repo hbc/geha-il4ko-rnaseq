@@ -1,0 +1,5 @@
+rRNA_rate,Duplication Rate of Mapped,Fragment Length Mean,avg_coverage_per_region,Quality format,Intergenic Rate,Mapped reads pct,Sequence length,Exonic Rate,Mapped,Duplicates pct,%GC,Mapping Rate,Total reads,rRNA,Genes Detected,Mapped reads,Duplicates,Name,Mean Per Base Cov.,Sequences flagged as poor quality,Transcripts Detected,Intronic Rate,5'-3' bias,barcode,batch,genotype
+0.0060444207128,0.0,0.0,NA,standard,0.1474,94.651%,40,0.6851999999999999,129548413,0%,47,0.9358305383225421,166070662,577550.936013,0,157187588,0,IL4ko_DC_3,0,0,0,0.1674,0.72,TCGTCA,batch3,IL4_knockout
+0.020854695699,0.0,0.0,NA,standard,0.19519999999999998,94.444%,40,0.6385000000000001,113823729,0%,46,0.931303893192385,151116209,1703762.54074,0,142720188,0,WT_DCs_1,0,0,0,0.1664,0.39,AATGGT,batch1,wildtype
+0.00461311590168,0.0,0.0,NA,standard,0.1396,97.3034%,40,0.7170000000000001,104789685,0%,49,0.9668380472757824,133285930,375844.138485,0,129691708,0,WT_DCs_3,0,0,0,0.1433,0.73,GGCAAC,batch3,wildtype
+0.0180663927085,0.0,0.0,NA,standard,0.1805,93.7331%,40,0.6659,109532019,0%,45,0.9226285866830516,146569461,1452406.67722,0,137384132,0,IL4ko_DC_1,0,0,0,0.1535,0.43,CTACTG,batch1,IL4_knockout

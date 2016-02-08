@@ -1,0 +1,25 @@
+[2016-02-04 16:25:33.025] [jointLog] [info] parsing read library format
+[2016-02-04 16:25:33.236] [jointLog] [info] Loading Quasi index
+[2016-02-04 16:25:55.001] [jointLog] [info] done
+[2016-02-04 16:31:01.052] [jointLog] [info] Estimating effective lengths
+[2016-02-04 16:31:01.554] [jointLog] [info] Computed 207372 rich equivalence classes for further processing
+[2016-02-04 16:31:01.554] [jointLog] [info] Counted 81696816 total reads in the equivalence classes 
+[2016-02-04 16:31:01.555] [jointLog] [info] Starting optimizer:
+
+[2016-02-04 16:31:01.709] [jointLog] [info] Optimizing over 207372 equivalence classes
+[2016-02-04 16:31:01.749] [jointLog] [info] iteration = 0 | max rel diff. = 86061.8
+[2016-02-04 16:31:05.256] [jointLog] [info] iteration = 100 | max rel diff. = 0.236909
+[2016-02-04 16:31:08.724] [jointLog] [info] iteration = 200 | max rel diff. = 0.0754712
+[2016-02-04 16:31:12.186] [jointLog] [info] iteration = 300 | max rel diff. = 0.0411157
+[2016-02-04 16:31:15.655] [jointLog] [info] iteration = 400 | max rel diff. = 0.0328068
+[2016-02-04 16:31:19.113] [jointLog] [info] iteration = 500 | max rel diff. = 0.028727
+[2016-02-04 16:31:22.580] [jointLog] [info] iteration = 600 | max rel diff. = 0.0230172
+[2016-02-04 16:31:26.044] [jointLog] [info] iteration = 700 | max rel diff. = 0.0179677
+[2016-02-04 16:31:29.510] [jointLog] [info] iteration = 800 | max rel diff. = 0.0162641
+[2016-02-04 16:31:32.970] [jointLog] [info] iteration = 900 | max rel diff. = 0.0144853
+[2016-02-04 16:31:36.241] [jointLog] [info] iteration = 1000 | max rel diff. = 0.0154245
+[2016-02-04 16:31:39.519] [jointLog] [info] iteration = 1100 | max rel diff. = 0.0128401
+[2016-02-04 16:31:42.298] [jointLog] [info] iteration = 1186 | max rel diff. = 0.00995669
+[2016-02-04 16:31:42.311] [jointLog] [info] Finished optimizer
+[2016-02-04 16:31:42.311] [jointLog] [info] writing output 
+

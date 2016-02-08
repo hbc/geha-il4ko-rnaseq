@@ -1,0 +1,27 @@
+[2016-02-04 16:25:17.700] [jointLog] [info] parsing read library format
+[2016-02-04 16:25:17.910] [jointLog] [info] Loading Quasi index
+[2016-02-04 16:25:33.948] [jointLog] [info] done
+[2016-02-04 16:30:50.977] [jointLog] [info] Estimating effective lengths
+[2016-02-04 16:30:51.303] [jointLog] [info] Computed 246000 rich equivalence classes for further processing
+[2016-02-04 16:30:51.303] [jointLog] [info] Counted 95551082 total reads in the equivalence classes 
+[2016-02-04 16:30:51.304] [jointLog] [info] Starting optimizer:
+
+[2016-02-04 16:30:51.410] [jointLog] [info] Optimizing over 246000 equivalence classes
+[2016-02-04 16:30:51.448] [jointLog] [info] iteration = 0 | max rel diff. = 109849
+[2016-02-04 16:30:54.708] [jointLog] [info] iteration = 100 | max rel diff. = 0.25636
+[2016-02-04 16:30:57.948] [jointLog] [info] iteration = 200 | max rel diff. = 0.096715
+[2016-02-04 16:31:01.179] [jointLog] [info] iteration = 300 | max rel diff. = 0.0445712
+[2016-02-04 16:31:04.378] [jointLog] [info] iteration = 400 | max rel diff. = 0.0817409
+[2016-02-04 16:31:07.523] [jointLog] [info] iteration = 500 | max rel diff. = 0.0297012
+[2016-02-04 16:31:10.582] [jointLog] [info] iteration = 600 | max rel diff. = 0.0297624
+[2016-02-04 16:31:14.289] [jointLog] [info] iteration = 700 | max rel diff. = 0.0197167
+[2016-02-04 16:31:18.110] [jointLog] [info] iteration = 800 | max rel diff. = 0.0161788
+[2016-02-04 16:31:20.962] [jointLog] [info] iteration = 900 | max rel diff. = 0.0140532
+[2016-02-04 16:31:23.794] [jointLog] [info] iteration = 1000 | max rel diff. = 0.0132225
+[2016-02-04 16:31:26.627] [jointLog] [info] iteration = 1100 | max rel diff. = 0.0124921
+[2016-02-04 16:31:29.477] [jointLog] [info] iteration = 1200 | max rel diff. = 0.0399912
+[2016-02-04 16:31:32.315] [jointLog] [info] iteration = 1300 | max rel diff. = 0.010088
+[2016-02-04 16:31:32.840] [jointLog] [info] iteration = 1319 | max rel diff. = 0.00944953
+[2016-02-04 16:31:32.847] [jointLog] [info] Finished optimizer
+[2016-02-04 16:31:32.847] [jointLog] [info] writing output 
+
