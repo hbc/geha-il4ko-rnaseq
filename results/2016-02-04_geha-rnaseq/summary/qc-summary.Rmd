@@ -523,8 +523,8 @@ to look at GO and KEGG enrichment. We looked at only GO ontology terms and
 pathways that had at least 5 terms, and called a hit significant if it had a BH
 adjusted p-value < 0.05.
 
-![GO ontology]("../../../images/GO-noswap.gif")
-![KEGG analysis]("../../web/KEGG_noswap.html")
+[GO ontology](images/GO-noswap.gif)
+[KEGG analysis](web/KEGG-noswap.html)
 
 ## sample swap
 Manuel and I talked over the phone, and we think there might have been a
@@ -579,5 +579,5 @@ write.table(swapped_de$id, file="de-swap.txt", col.names=FALSE,
 
 Here are the GO and KEGG results for that:
 
-![GO ontology]("../../../images/GO-swap.gif")
-![KEGG analysis]("../../web/KEGG_swap.html")
+[GO ontology](images/GO-swap.gif)
+[KEGG analysis](web/KEGG-swap.html)
