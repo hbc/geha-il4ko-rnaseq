@@ -1,0 +1,57 @@
+#container{
+    padding-top:20px;
+    width:960px;
+    margin:0 auto;
+}
+ 
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width:100%;
+    text-align: left; 
+    -webkit-box-shadow:  0px 2px 1px 5px rgba(242, 242, 242, 0.1);
+    box-shadow:  0px 2px 1px 5px rgba(242, 242, 242, 0.1);
+}
+ 
+.zebra {
+    border: 1px solid #fff;
+}
+
+ 
+.zebra td {
+    border: 1px solid #e4d6c8;
+    padding: 10px;
+      
+}
+ 
+.zebra th {
+  
+    border: 1px solid #e4d6c8;
+    padding: 10px;  
+    background-color:#e6f4d6 !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e6f4d6)) !important;
+    background-image: -webkit-linear-gradient(top, #ffffff, #e6f4d6) !important;
+    background-image:    -moz-linear-gradient(top, #ffffff, #e6f4d6) !important;
+    background-image:     -ms-linear-gradient(top, #ffffff, #e6f4d6) !important;
+    background-image:      -o-linear-gradient(top, #ffffff, #e6f4d6) !important;
+    background-image:         linear-gradient(top, #ffffff, #e6f4d6) !important;
+    color:#000 !important;
+    font-weight:normal;
+}
+ 
+.zebra tr.selected{
+    background: #b5d68d;
+}
+
+
+.zebra tr:nth-child(odd){
+        background:#fff !important;
+	color:#000;
+} 
+
+ 
+.zebra tr {
+    background:#e6f4d6;
+    color:#000;
+}

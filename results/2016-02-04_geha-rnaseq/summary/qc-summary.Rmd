@@ -496,3 +496,88 @@ didn't do a small RNA experiment. What we are likely picking up is unspliced pre
 a clear correlation between pre-miRNA expression and mature miRNA expression. If
 you wanted to do anything with the miRNA results,
 you'd have to follow up with qPCR or a small RNA sequencing experiment or something to look at the mature miRNA if you wanted to make that into a publishable finding.
+
+## GO/KEGG analysis
+We need two pieces of information to do the GO and KEGG analysis. The first is
+the background set of genes that are expressed in this sample. We'll call
+that background set any gene with a baseMean expression of at least 10. The
+second is the list of genes we are calling differentially expressed and
+also have an expression of at least 10. Then we test to see if there are pathways
+overrepresented in the differentially expressed list compared to the
+background list.
+
+```{r write-expressed-gene-identifiers}
+expressed = subset(res, baseMean > 10)
+write.table(expressed$id, file="expressed.txt", col.names=FALSE,
+            row.names=FALSE, quote=FALSE)
+```
+
+```{r write-de-identifiers}
+de = subset(res, baseMean > 10 & padj < 0.05)
+write.table(de$id, file="de-nonswap.txt", col.names=FALSE,
+            row.names=FALSE, quote=FALSE)
+```
+
+Now we load those into [WebGestalt](http://bioinfo.vanderbilt.edu/webgestalt/)
+to look at GO and KEGG enrichment. We looked at only GO ontology terms and
+pathways that had at least 5 terms, and called a hit significant if it had a BH
+adjusted p-value < 0.05.
+
+![GO ontology]("../../../images/GO-noswap.gif")
+![KEGG analysis]("../../web/KEGG_noswap.html")
+
+## sample swap
+Manuel and I talked over the phone, and we think there might have been a
+sample swap after all. Il13ra1 should be down in the Il4KO cells because Il13ra1 is
+controlled by Il4. That doesn't seem to be the case though:
+
+```{r Il13ra1-counts, results='asis'}
+knitr::kable(counts["ENSMUSG00000017057",])
+```
+
+It looks from that that batch 1 is the IL4KO and batch 3 is the WT. This
+would also make the PCA plot make a lot more sense.
+
+He is going to check with the core and his notes to see if they can figure out
+if a swap happened. He is also going to do some qPCR and look at some other
+markers to see if they can identify other genes that might be markers of a
+swap. Here is a table of the mapping of the FASTQ files to the
+sample metadata that we used for reference.
+
+```{r mapping-files-redone, echo=FALSE}
+knitr::kable(read.table("../../geha-rnaseq.csv", sep=",", header=TRUE))
+```
+
+In the meantime, we'll look at the effect of batch, which we think is might
+actually be the genotype. `batch1` should be IL4ko and `batch3` is the WT.
+
+```{r doctor-sampletable}
+swapped_results = handle_deseq2(dds, summarydata, "batch")
+swapped_res = data.frame(swapped_results[[1]])
+swapped_res$id = rownames(swapped_res)
+swapped_res = swapped_res %>% left_join(conversions, by=c("id"="ensembl_gene_id"))
+write.table(swapped_res, file=paste("swapped-", names(all_results)[1], ".tsv", sep=""),
+                        quote=FALSE, sep="\t", row.names=FALSE, col.names=TRUE)
+```
+
+```{r DESeq-volcano-swapped}
+for(i in seq(length(swapped_results))) {
+  stats = as.data.frame(swapped_results[[i]][,c(2,6)])
+  p = volcano_density_plot(stats, title=names(swapped_results)[i], lfc.cutoff=1.5)
+  print(p)
+}
+```
+
+There are `r nrow(subset(swapped_res, padj < 0.05))`  genes which are different
+between `batch1` and `batch3`, so a huge difference.
+
+```{r write-swapped-de-identifiers}
+swapped_de = subset(swapped_res, baseMean > 10 & padj < 0.05)
+write.table(swapped_de$id, file="de-swap.txt", col.names=FALSE,
+            row.names=FALSE, quote=FALSE)
+```
+
+Here are the GO and KEGG results for that:
+
+![GO ontology]("../../../images/GO-swap.gif")
+![KEGG analysis]("../../web/KEGG_swap.html")
