@@ -577,6 +577,16 @@ write.table(swapped_de$id, file="de-swap.txt", col.names=FALSE,
             row.names=FALSE, quote=FALSE)
 ```
 
+```{r write-counts}
+out_count_table = counts
+out_count_table$id = rownames(out_count_table)
+out_cols = colnames(out_count_table)
+out_cols = c("id", out_cols[out_cols != "id"])
+out_count_table = out_count_table[, out_cols]
+write.table(out_count_table, row.names=FALSE, col.names=TRUE, quote=FALSE, sep="\t",
+            file="counts.txt")
+```
+
 Here are the GO and KEGG results for that:
 
 [GO ontology](images/GO-swap.gif)
